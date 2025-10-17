@@ -1,4 +1,3 @@
-
 :root {
     --primary-color: #4CAF50; 
     --primary-hover-color: #45a049;
@@ -19,12 +18,14 @@ body {
     min-height: 100vh;
     flex-direction: column;
     padding: 20px;
+    margin: 0; /* Garante que não haja margem extra no body */
 }
 
 h1 {
     color: var(--primary-color);
     margin-bottom: 20px;
     font-weight: 600;
+    text-align: center;
 }
 
 form, .card {
@@ -35,8 +36,8 @@ form, .card {
     width: 100%;
     max-width: 360px;
     margin-top: 20px;
+    box-sizing: border-box; /* Essencial para garantir que o padding não estoure o width */
 }
-
 
 div {
     margin-bottom: 15px;
@@ -49,17 +50,20 @@ label {
     color: #555;
 }
 
-input[type="text"], input[type="password"] {
-    width: calc(100% - 20px); 
+/* CORREÇÃO AQUI: Garante que os inputs usem 100% da largura do contêiner */
+input[type="text"], 
+input[type="password"] {
+    width: 100%; /* Ocupa 100% do espaço disponível */
     padding: 10px;
     margin: 0; 
     border: 1px solid var(--border-color);
     border-radius: 6px; 
-    box-sizing: border-box;
+    box-sizing: border-box; /* MUITO IMPORTANTE: Garante que padding e border não aumentem a largura */
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
+input[type="text"]:focus, 
+input[type="password"]:focus {
     border-color: var(--primary-color);
     outline: none;
 }
@@ -103,4 +107,33 @@ a {
 a:hover {
     color: var(--primary-hover-color);
     text-decoration: underline;
+}
+
+/* ----------------------------------------------------------------- */
+/* RESPONSIVIDADE (Otimizada)                                        */
+/* ----------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+    
+    /* Reduz o padding do body e dos cards */
+    body {
+        padding: 10px; 
+    }
+
+    form, .card {
+        padding: 20px 15px; /* Padding ajustado para telas menores */
+        max-width: 100%;
+        margin-top: 5px;
+        box-shadow: none; /* Deixa o visual mais limpo em mobile */
+        border-radius: 0;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px;
+    }
 }

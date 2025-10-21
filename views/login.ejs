@@ -3,28 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Meu Projeto</title>
+    <title>AUTH-SYS | Acesso Remoto</title>
     <link rel="stylesheet" href="/css/style.css">
-</head>
+    </head>
 <body>
-    <h1>Acesse sua Conta</h1>
+    <h1><span class="neon-glow">[ AUTH-SYS ]</span></h1>
 
     <form action="/login" method="POST">
-        <h2>Faça Login</h2>
+        <h2>LOGIN :: Acesso ao Sistema</h2>
         
         <% if (erro) { %>
-            <p class="error-message"><%= erro %></p>
+            <p class="error-message">ALERTA 🔴 <%= erro %></p>
         <% } %>
 
         <div>
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username" required autocomplete="username">
+            <label for="username">Usuário (ID/Key):</label>
+            <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                required 
+                autocomplete="username"
+                placeholder="Insira seu ID de acesso..."
+            >
         </div>
         <div>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required autocomplete="current-password">
+            <label for="password">Senha (Criptografada):</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                required 
+                autocomplete="current-password"
+                placeholder="Chave de segurança..."
+            >
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit">_ENTRAR_</button>
     </form>
 </body>
 </html>

@@ -1,15 +1,21 @@
 :root {
-    --primary-color: #4CAF50; 
-    --primary-hover-color: #45a049;
-    --background-color: #e9ebee;
-    --card-background: #ffffff;
-    --text-color: #333;
-    --border-color: #ddd;
-    --shadow-color: rgba(0, 0, 0, 0.15);
+    /* CORES FUTURISTAS/NEON */
+    --primary-color: #00e0ff; /* Ciano Neon para Ação */
+    --primary-hover-color: #00b8d4;
+    --background-color: #121212; /* Fundo Escuro */
+    --card-background: rgba(25, 25, 25, 0.95); /* Fundo do Card Quase Preto */
+    --text-color: #e0e0e0; /* Texto Claro */
+    --border-color: #333; /* Borda Discreta */
+    --shadow-color: rgba(0, 224, 255, 0.3); /* Sombra Neon (Brilho) */
+    --glow-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
 }
 
+/* ----------------------------------------------------------------- */
+/* BASE */
+/* ----------------------------------------------------------------- */
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Consolas', 'Fira Code', monospace; /* Fonte de Terminal */
     background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
@@ -18,95 +24,141 @@ body {
     min-height: 100vh;
     flex-direction: column;
     padding: 20px;
-    margin: 0; /* Garante que não haja margem extra no body */
+    margin: 0;
+    /* Efeito de Scanline ou Fundo Sutil */
+    background-image: radial-gradient(#1e1e1e 1px, transparent 1px);
+    background-size: 20px 20px;
 }
 
 h1 {
     color: var(--primary-color);
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
+    text-shadow: 0 0 5px var(--primary-color); /* Efeito de brilho no título */
+    letter-spacing: 2px;
 }
+
+/* ----------------------------------------------------------------- */
+/* CARD / FORM */
+/* ----------------------------------------------------------------- */
 
 form, .card {
     background: var(--card-background);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px var(--shadow-color);
+    /* Efeito de Vidro/Transparência */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 224, 255, 0.1); /* Borda fina e neon */
+    box-shadow: 0 0 25px var(--shadow-color); /* Sombra mais intensa */
     width: 100%;
-    max-width: 360px;
-    margin-top: 20px;
-    box-sizing: border-box; /* Essencial para garantir que o padding não estoure o width */
+    max-width: 380px;
+    margin-top: 25px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+form:hover, .card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--glow-shadow);
 }
 
 div {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 500;
-    color: #555;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
 }
 
-/* CORREÇÃO AQUI: Garante que os inputs usem 100% da largura do contêiner */
+/* ----------------------------------------------------------------- */
+/* INPUTS */
+/* ----------------------------------------------------------------- */
+
 input[type="text"], 
 input[type="password"] {
-    width: 100%; /* Ocupa 100% do espaço disponível */
-    padding: 10px;
-    margin: 0; 
+    width: 100%;
+    padding: 12px;
+    margin: 0;
+    background-color: #1c1c1c; /* Fundo mais escuro no input */
+    color: var(--primary-color);
     border: 1px solid var(--border-color);
-    border-radius: 6px; 
-    box-sizing: border-box; /* MUITO IMPORTANTE: Garante que padding e border não aumentem a largura */
-    transition: border-color 0.3s ease;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus, 
 input[type="password"]:focus {
     border-color: var(--primary-color);
     outline: none;
+    box-shadow: 0 0 5px var(--primary-color); /* Brilho no foco */
 }
+
+/* Placeholder com cor neon sutil */
+::placeholder {
+    color: rgba(0, 224, 255, 0.4);
+}
+
+/* ----------------------------------------------------------------- */
+/* BOTÕES */
+/* ----------------------------------------------------------------- */
 
 button {
     background-color: var(--primary-color);
-    color: white;
-    padding: 12px 15px;
+    color: var(--background-color); /* Texto escuro no botão neon */
+    padding: 14px 15px;
     border: none;
     cursor: pointer;
     width: 100%;
     margin-top: 15px;
-    border-radius: 6px;
+    border-radius: 4px;
     font-weight: bold;
     font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.1s ease; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease; 
 }
 
 button:hover {
     background-color: var(--primary-hover-color);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: var(--glow-shadow);
 }
 
+/* ----------------------------------------------------------------- */
+/* MENSAGENS E LINKS */
+/* ----------------------------------------------------------------- */
+
 .error-message {
-    color: #d9534f;
-    background-color: #f2dede;
-    border: 1px solid #ebccd1;
+    color: #ff3b30; /* Vermelho mais futurista */
+    background-color: rgba(255, 59, 48, 0.1);
+    border: 1px solid #ff3b30;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: center;
+    text-shadow: 0 0 3px rgba(255, 59, 48, 0.5);
 }
 
 a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
     color: var(--primary-hover-color);
-    text-decoration: underline;
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--primary-color);
 }
 
 /* ----------------------------------------------------------------- */
@@ -114,26 +166,14 @@ a:hover {
 /* ----------------------------------------------------------------- */
 
 @media (max-width: 480px) {
-    
-    /* Reduz o padding do body e dos cards */
     body {
         padding: 10px; 
     }
 
     form, .card {
-        padding: 20px 15px; /* Padding ajustado para telas menores */
+        padding: 25px 20px;
         max-width: 100%;
-        margin-top: 5px;
-        box-shadow: none; /* Deixa o visual mais limpo em mobile */
-        border-radius: 0;
-    }
-
-    h1 {
-        font-size: 22px;
-        margin-bottom: 10px;
-    }
-
-    button {
-        padding: 10px;
+        margin-top: 15px;
+        box-shadow: 0 0 15px var(--shadow-color);
     }
 }

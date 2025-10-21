@@ -1,21 +1,16 @@
 :root {
-    /* CORES FUTURISTAS/NEON */
-    --primary-color: #00e0ff; /* Ciano Neon para Ação */
+    --primary-color: #00e0ff;
     --primary-hover-color: #00b8d4;
-    --background-color: #121212; /* Fundo Escuro */
-    --card-background: rgba(25, 25, 25, 0.95); /* Fundo do Card Quase Preto */
-    --text-color: #e0e0e0; /* Texto Claro */
-    --border-color: #333; /* Borda Discreta */
-    --shadow-color: rgba(0, 224, 255, 0.3); /* Sombra Neon (Brilho) */
+    --background-color: #121212;
+    --card-background: rgba(25, 25, 25, 0.95);
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --shadow-color: rgba(0, 224, 255, 0.3);
     --glow-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
 }
 
-/* ----------------------------------------------------------------- */
-/* BASE */
-/* ----------------------------------------------------------------- */
-
 body {
-    font-family: 'Consolas', 'Fira Code', monospace; /* Fonte de Terminal */
+    font-family: 'Consolas', 'Fira Code', monospace;
     background-color: var(--background-color);
     color: var(--text-color);
     display: flex;
@@ -25,7 +20,6 @@ body {
     flex-direction: column;
     padding: 20px;
     margin: 0;
-    /* Efeito de Scanline ou Fundo Sutil */
     background-image: radial-gradient(#1e1e1e 1px, transparent 1px);
     background-size: 20px 20px;
 }
@@ -35,23 +29,18 @@ h1 {
     margin-bottom: 20px;
     font-weight: 700;
     text-align: center;
-    text-shadow: 0 0 5px var(--primary-color); /* Efeito de brilho no título */
+    text-shadow: 0 0 5px var(--primary-color);
     letter-spacing: 2px;
 }
 
-/* ----------------------------------------------------------------- */
-/* CARD / FORM */
-/* ----------------------------------------------------------------- */
-
 form, .card {
     background: var(--card-background);
-    /* Efeito de Vidro/Transparência */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     padding: 35px;
     border-radius: 15px;
-    border: 1px solid rgba(0, 224, 255, 0.1); /* Borda fina e neon */
-    box-shadow: 0 0 25px var(--shadow-color); /* Sombra mais intensa */
+    border: 1px solid rgba(0, 224, 255, 0.1); 
+    box-shadow: 0 0 25px var(--shadow-color);
     width: 100%;
     max-width: 380px;
     margin-top: 25px;
@@ -78,16 +67,12 @@ label {
     letter-spacing: 1px;
 }
 
-/* ----------------------------------------------------------------- */
-/* INPUTS */
-/* ----------------------------------------------------------------- */
-
 input[type="text"], 
 input[type="password"] {
     width: 100%;
     padding: 12px;
     margin: 0;
-    background-color: #1c1c1c; /* Fundo mais escuro no input */
+    background-color: #1c1c1c;
     color: var(--primary-color);
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -99,21 +84,16 @@ input[type="text"]:focus,
 input[type="password"]:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 5px var(--primary-color); /* Brilho no foco */
+    box-shadow: 0 0 5px var(--primary-color);
 }
 
-/* Placeholder com cor neon sutil */
 ::placeholder {
     color: rgba(0, 224, 255, 0.4);
 }
 
-/* ----------------------------------------------------------------- */
-/* BOTÕES */
-/* ----------------------------------------------------------------- */
-
 button {
     background-color: var(--primary-color);
-    color: var(--background-color); /* Texto escuro no botão neon */
+    color: var(--background-color);
     padding: 14px 15px;
     border: none;
     cursor: pointer;
@@ -133,12 +113,8 @@ button:hover {
     box-shadow: var(--glow-shadow);
 }
 
-/* ----------------------------------------------------------------- */
-/* MENSAGENS E LINKS */
-/* ----------------------------------------------------------------- */
-
 .error-message {
-    color: #ff3b30; /* Vermelho mais futurista */
+    color: #ff3b30;
     background-color: rgba(255, 59, 48, 0.1);
     border: 1px solid #ff3b30;
     padding: 10px;
@@ -160,10 +136,6 @@ a:hover {
     text-decoration: none;
     text-shadow: 0 0 5px var(--primary-color);
 }
-
-/* ----------------------------------------------------------------- */
-/* RESPONSIVIDADE (Otimizada)                                        */
-/* ----------------------------------------------------------------- */
 
 @media (max-width: 480px) {
     body {

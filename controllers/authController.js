@@ -3,7 +3,7 @@
 // Simulação de "banco de dados" de usuários
 const USERS = [
     { username: 'admin', password: '12345', role: 'admin' },   // Administrador
-    { username: 'usuario', password: '6789', role: 'user' }    // Usuário Comum
+    { username: 'usuario', password: '67890', role: 'user' }    // Usuário Comum
 ];
 
 const authController = {
